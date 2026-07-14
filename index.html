@@ -1,46 +1,152 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Felipe ❤️ Alice</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body{
-            margin:0;
-            background:#111827;
-            color:white;
-            font-family:Arial;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            height:100vh;
-            text-align:center;
-        }
+<title>Para Alice ❤️</title>
 
-        h1{
-            font-size:50px;
-        }
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #ffe6ea, #fff);
+    color: #5a2a35;
+    text-align: center;
+}
 
-        p{
-            font-size:22px;
-            color:#ddd;
-        }
-    </style>
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+h1 {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.heart {
+    font-size: 50px;
+}
+
+.message {
+    font-size: 22px;
+    line-height: 1.6;
+    margin: 30px 0;
+}
+
+.counter {
+    background: rgba(255,255,255,0.8);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    font-size: 22px;
+    margin-bottom: 40px;
+}
+
+.number {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+video {
+    width: 90%;
+    max-width: 700px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.footer {
+    margin-top: 40px;
+    font-size: 18px;
+}
+</style>
 
 </head>
 
 <body>
 
+<div class="container">
+
+<div class="heart">❤️</div>
+
+<h1>Para Alice</h1>
+
+<div class="message">
+Desde o dia <b>15 de janeiro de 2023</b>, 
+minha vida ganhou novos momentos, histórias e sentimentos.
+<br><br>
+Cada segundo ao seu lado se tornou uma parte da nossa história.
+</div>
+
+
+<div class="counter">
+
 <div>
+Estamos juntos há:
+</div>
 
-<h1>❤️ Felipe & Alice ❤️</h1>
+<br>
 
-<p>Se você está vendo esta página...</p>
-
-<p>Significa que nosso site está funcionando! 🎉</p>
+<span class="number" id="days"></span> dias<br>
+<span class="number" id="hours"></span> horas<br>
+<span class="number" id="minutes"></span> minutos<br>
+<span class="number" id="seconds"></span> segundos
 
 </div>
+
+
+<video controls>
+    <source src="video.mp4" type="video/mp4">
+    Seu navegador não suporta vídeo.
+</video>
+
+
+<div class="footer">
+Com amor, Felipe ❤️
+</div>
+
+
+</div>
+
+
+<script>
+
+const startDate = new Date("2023-01-15T00:00:00");
+
+function updateCounter(){
+
+    const now = new Date();
+
+    const difference = now - startDate;
+
+
+    const seconds = Math.floor(difference / 1000);
+
+    const days = Math.floor(seconds / 86400);
+
+    const hours = Math.floor((seconds % 86400) / 3600);
+
+    const minutes = Math.floor((seconds % 3600) / 60);
+
+    const secs = seconds % 60;
+
+
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = secs;
+
+}
+
+setInterval(updateCounter,1000);
+
+updateCounter();
+
+</script>
+
 
 </body>
 </html>
